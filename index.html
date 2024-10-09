@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURE CHAT SYSTEM</title>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: url('https://images.pexels.com/photos/2693529/pexels-photo-2693529.jpeg') no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 60%; /* Adjusted to 80% of viewport width */
+            max-width: 300px; /* Added to limit maximum width */
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+        h2 {
+            background: linear-gradient(to right, #007eff, #00b1ff); /* Blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2em;
+            text-transform: uppercase;
+            padding: 20px 0;
+        }
+        .form-group {
+            position: relative;
+            width: 330px;
+            margin: 30px 0;
+            border-bottom: 3px solid #ffff;
+        }
+        .form-group input {
+            width: 100%;
+            height: 50px;
+            padding: 0 35px 0 10px;
+            font-size: 1.2em;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+        }
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: #fff;
+            transition: 0.5s;
+        }
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -5px;
+        }
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #ffff;
+            font-size: 1.2em;
+        }
+        p {
+            text-align: center;
+            color: #fff;
+            margin: 10px 0;
+        }
+        p > a {
+            text-decoration: none;
+            color: #28b487; /* Change the color to green */
+            font-weight: 600;
+        }
+        p > a:hover {
+            text-decoration: underline;
+            font-style: italic;
+        }
+        #btn {
+            width: 100%;
+            height: 50px;
+            border-radius: 40px;
+            border: none;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: all 0.5s;
+            background: linear-gradient(to right, #28b487, #007d46);
+            color: #fff;
+        }
+        #btn:hover {
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
+        }
+        .forget-password {
+            background: linear-gradient(to right, #ff4d4d, #ff1a1a); /* Red gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        .forget-password:hover {
+            text-decoration: underline;
+            font-style: italic;
+        }
+        .forget-password-container {
+            display: flex;
+            align-items: center; /* Align items vertically centered */
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+            margin-top: 25px; /* Add some margin */
+        }
+        .forget-password-container label {
+            color: #fff; /* White gradient for the label */
+            margin-left: 0px; /* Adjust margin to align text with checkbox */
+        }
+        .message-box {
+            background-color: rgba(194, 7, 7, 0.8); /* More opaque background */
+            padding: 10px 10px;
+            border-radius: 8px;
+            color: #f2f5f5;
+            font-size: 0.9em;
+            position: absolute;
+            right: 10px;
+            display: none;
+            max-width: 300px;
+            text-align: center;
+        
+        }
+
+        #welcome-back {
+    font-size: 23px;
+    background: linear-gradient(to right, #28b487, #28b487);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 5px;
+}
+
+    </style>
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>SECURE CHAT SYSTEM</h2>
+        <h3 id="welcome-back">Welcome Back! Please Login</h3>
+        <form action="">
+            <div class="form-group">
+                <input type="text" required>
+                <label for="userid">UserID</label>
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="form-group">
+                <input type="password" minlength="4" required>
+                <label for="password">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="forget-password-container">
+                <input type="checkbox" id="rememberMe" value="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+             <input id="btn" type="submit" value="Login">
+        </form>
+    </div>
+    <script>
+        const forgetPasswordButton = document.querySelector('.forget-password');
+        const messageBox = document.getElementById('messageBox');
+        const messageText = "Please contact the co-ordinator of The STeM Elites Club for the password recovery. Thank You!!";
+        
+        function typeMessage(text, element) {
+            let i = 0;
+            element.textContent = '';
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        element.style.display = 'none';
+                    }, 2500); // Holds the message for 2.5 seconds after typing
+                }
+            }, 100); // Slower typing speed
+        }
+        
+        function showMessage() {
+            messageBox.style.display = 'block';
+            typeMessage(messageText, messageBox);
+        }
+
+        forgetPasswordButton.addEventListener('click', showMessage);
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
