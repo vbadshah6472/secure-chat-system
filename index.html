@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SECURE CHAT SYSTEM</title>
+    <title>MR. CHATs</title>
     <link rel="stylesheet" href="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous">
     <style>
         * {
@@ -26,8 +26,8 @@
         }
         .container {
             width: 80%; /* Adjusted to 80% of viewport width */
-            max-width: 500px; /* Added to limit maximum width */
-            height: 400px;
+            max-width: 400px; /* Added to limit maximum width */
+            height: 500px;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
@@ -167,8 +167,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>SECURE CHAT SYSTEM</h2>
-        <h3 id="welcome-back">Welcome Back! Please Login</h3>
+        <h2>MR. CHATs</h2>
+        <h3 id="welcome-back">Welcome Back</h3>
         <form action="">
             <div class="form-group">
                 <input type="text" required>
@@ -183,14 +183,17 @@
             <div class="forget-password-container">
                 <input type="checkbox" id="rememberMe" value="rememberMe">
                 <label for="rememberMe">Remember Me</label>
+                <a href="#" class="forget-password">Forgot Password?</a>
             </div>
-             <input id="btn" type="submit" value="Login">
+            <div class="message-box" id="messageBox">Please contact the Service Provider for the password recovery. Thank You!!</div>
+            <input id="btn" type="submit" value="Login">
+            <p>New To MR. CHATs? <a href="signup.html">SignUp</a></p>
         </form>
     </div>
     <script>
         const forgetPasswordButton = document.querySelector('.forget-password');
         const messageBox = document.getElementById('messageBox');
-        const messageText = "Please contact the co-ordinator of The STeM Elites Club for the password recovery. Thank You!!";
+        const messageText = "Please contact the Service Provider for the password recovery. Thank You!!";
         
         function typeMessage(text, element) {
             let i = 0;
